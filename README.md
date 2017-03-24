@@ -1,1 +1,1 @@
-# Mamiferos
+Diseño de un catálogo de mamíferos.
