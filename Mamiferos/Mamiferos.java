@@ -1,6 +1,6 @@
 package Mamiferos;
 /**
- * Clase para crear una lista din·mica de mamÌferos
+ * Clase para crear una lista din√°mica de mam√≠feros
  * @author Nieves Borrero
  * version 1.0
  */
@@ -16,7 +16,7 @@ public class Mamiferos {
 	
 	/**
 	 * Evita que se creen dos instancias de la misma clase.
-	 * @return arrayList de mamÌferos, si ya existe devuelve null.
+	 * @return arrayList de mam√≠feros, si ya existe devuelve null.
 	 */
 	public static Mamiferos getInstance(){
 		if(mamiferos==null)
@@ -25,7 +25,7 @@ public class Mamiferos {
 	}
 	
 	/**
-	 * AÒade un mamÌfero a la lista
+	 * A√±ade un mam√≠fero a la lista
 	 * @param mamifero
 	 */
 	public void add(Mamifero mamifero){
@@ -33,15 +33,15 @@ public class Mamiferos {
 	}
 	
 	/**
-	 * Devuelve el tamaÒo de la lista
-	 * @return tamaÒo del ArrayList
+	 * Devuelve el tama√±o de la lista
+	 * @return tama√±o del ArrayList
 	 */
 	public int size() {
 		return mamiferos.size();
 	}
 	
 	/**
-	 * Devuelve un mamÌfero de la posiciÛn indicada
+	 * Devuelve un mam√≠fero de la posici√≥n indicada
 	 * @param indice
 	 * @return mamifero
 	 */
@@ -50,11 +50,20 @@ public class Mamiferos {
 	}
 	
 	/**
-	 * Comprueba si la lista est· vacÌa
+	 * Comprueba si la lista est√° vac√≠a
 	 * @return
 	 */
 	public boolean isEmpty(){
 		return mamiferos.isEmpty();
+	}
+	
+	/**
+	 * Devuelve un iterable del ArrayList de mam√≠feros.
+	 * @return Iterator
+	 */
+	public ListIterator<Mamifero> toIterator(){
+		ListIterator<Mamifero> it= mamiferos.listIterator();
+		return it;
 	}
 	
 	@Override
