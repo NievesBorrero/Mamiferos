@@ -12,7 +12,7 @@ public class CatalogoMamiferos {
 
 	public static void main(String[] args) {
 		Menu menu = new Menu("**Catalogo de mamiferos", new String[] {
-				"AÒadir mamifero", "Listar mamiferos", "Listar humanos",
+				"A√±adir mamifero", "Listar mamiferos", "Listar humanos",
 				"Listar focas en orden inverso", "contar murcielagos",
 				"Alimentar a todos los mamiferos del catalogo", "Salir" });
 		int opcion;
@@ -47,38 +47,44 @@ public class CatalogoMamiferos {
 		System.out.println("Hasta otra!");
 
 	}
-/**
- * Recorre el cat·logo de mamÌferos y los alimenta, siempre que la lista no estÈ vacÌa.
- */
+
+	/**
+	 * Recorre el cat√°logo de mam√≠feros y los alimenta, siempre que la lista no
+	 * est√© vac√≠a.
+	 */
 	private static void alimentarMamiferos() {
 		if (!isEmpty()) {
 			for (int i = 0; i < mamiferos.size(); i++) {
-				System.out.println(mamiferos.get(i).getNombre()+": "+mamiferos.get(i).alimentar());
+				System.out.println(mamiferos.get(i).getNombre() + ": "
+						+ mamiferos.get(i).alimentar());
 			}
 		}
 	}
-	
-/**
- * Comprueba si la lista est· vacÌa, si lo est·, muestra un mensaje
- * @return true o falsesi la lista no est· vacÌa.
- */
+
+	/**
+	 * Comprueba si la lista est√° vac√≠a, si lo est√°, muestra un mensaje
+	 * 
+	 * @return true o falsesi la lista no est√° vac√≠a.
+	 */
 	private static boolean isEmpty() {
 		if (mamiferos.isEmpty()) {
 			System.out
-					.println("El catalogo esta vacio, aÒade mamiferos antes de comenzar");
+					.println("El catalogo esta vacio, a√±ade mamiferos antes de comenzar");
 			return true;
 		}
 		return false;
 	}
 
 	/**
-	 * Recorre el cat·logo contando los murciÈlagos
+	 * Recorre el cat√°logo contando los murci√©lagos
 	 */
 	private static void contarMurciegalos() {
 		if (!isEmpty()) {
 			int n_murcielagos = 0;
-			for (int i = 0; i < mamiferos.size(); i++) {
-				if (mamiferos.get(i) instanceof Murcielago) {
+			ListIterator<Mamifero> it = mamiferos.toIterator();
+
+			while (it.hasNext()) {
+				if (it.next() instanceof Murcielago) {
 					n_murcielagos++;
 				}
 			}
@@ -87,42 +93,57 @@ public class CatalogoMamiferos {
 	}
 
 	/**
-	 * Lista las focas de forma inversa, siempre que la lista no estÈ vacÌa.
+	 * Lista las focas de forma inversa, siempre que la lista no est√© vac√≠a.
 	 */
 	private static void listarFocasInv() {
 		if (!isEmpty()) {
-			for (int i = mamiferos.size() - 1; i >= 0; i--) {
-				if (mamiferos.get(i) instanceof Foca) {
-					System.out.println(mamiferos.get(i).toString());
+			ListIterator<Mamifero> it = mamiferos.toIterator();
+			Mamifero mamifero;
+			
+			while (it.hasNext()) { // Recorremos el LisIterator para que se
+									// quede apuntando al √∫ltimo elemento
+				it.next();
+			}
+
+			while (it.hasPrevious()) {
+				mamifero = it.previous();
+				if (mamifero instanceof Foca) {
+					System.out.println(mamifero.toString());
 				}
 			}
 		}
 
 	}
+
 	/**
-	 * Lista los humanos siempre que la lista no estÈ vacÌa.
+	 * Lista los humanos siempre que la lista no est√© vac√≠a.
 	 */
 	private static void listarHumanos() {
 		if (!isEmpty()) {
-			for (int i = 0; i < mamiferos.size(); i++) {
-				if (mamiferos.get(i) instanceof HomoSapiens) {
-					System.out.println(mamiferos.get(i).toString());
+			ListIterator<Mamifero> it = mamiferos.toIterator();
+			Mamifero mamifero;
+			while (it.hasNext()) {
+				mamifero= it.next();
+				if (mamifero instanceof HomoSapiens) {
+					System.out.println(mamifero.toString());
 				}
 			}
 		}
 
 	}
+
 	/**
-	 * Lista todos los mamÌferos siempre que la lista no estÈ vacÌa.
+	 * Lista todos los mam√≠feros siempre que la lista no est√© vac√≠a.
 	 */
 	private static void listarMamiferos() {
 		if (!isEmpty()) {
 			System.out.println(mamiferos.toString());
 		}
 	}
-	
+
 	/**
-	 * Muestra un men˙ para seleccionar el mamÌfero que se desee aÒadir al cat·logo
+	 * Muestra un men√∫ para seleccionar el mam√≠fero que se desee a√±adir al
+	 * cat√°logo
 	 */
 	private static void add() {
 		Menu menu = new Menu("Que mamifero desea aniadir?", new String[] {
@@ -142,32 +163,34 @@ public class CatalogoMamiferos {
 	}
 
 	/**
-	 * AÒade un murciÈlago
+	 * A√±ade un murci√©lago
 	 */
 	private static void addMurcielago() {
 		mamiferos.add(new Murcielago(pedirNombre()));
 
 	}
-	
+
 	/**
-	 * AÒade una foca
+	 * A√±ade una foca
 	 */
 	private static void addFoca() {
 		mamiferos.add(new Foca(pedirNombre()));
 	}
 
 	/**
-	 * AÒade un Homo Sapiens
+	 * A√±ade un Homo Sapiens
 	 */
 	private static void addHomoSapiens() {
 		mamiferos.add(new HomoSapiens(pedirNombre()));
 	}
 
 	/**
-	 * Pide el nombre del mamÌfero
+	 * Pide el nombre del mam√≠fero
+	 * 
 	 * @return nombre
 	 */
 	private static String pedirNombre() {
 		return Teclado.leerCadena("Nombre:");
 	}
+
 }
