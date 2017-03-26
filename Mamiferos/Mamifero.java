@@ -36,6 +36,8 @@ public abstract class Mamifero implements Comparable<Mamifero>{
 	/**
 	* Permite darle un nombre al mamífero controlando que sea correcto, de
 	* no serlo, lanza una excepción.
+	* @param nombre
+	* @throws NombreNoValidoException
 	*/
 	private void setNombre(String nombre) throws NombreNoValidoException {
 		if (nombreEsValido(nombre))
