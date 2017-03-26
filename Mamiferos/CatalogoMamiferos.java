@@ -38,6 +38,7 @@ public class CatalogoMamiferos {
 				break;
 			case 7:
 				ordenarMamiferosPorNombre();
+				break;
 			case 8:
 				salir();
 				break;
@@ -173,24 +174,34 @@ public class CatalogoMamiferos {
 	 * Añade un murciélago
 	 */
 	private static void addMurcielago() {
-		mamiferos.add(new Murcielago(pedirNombre()));
+		try {
+			mamiferos.add(new Murcielago(pedirNombre()));
+		} catch (NombreNoValidoException e) {
+			System.out.println(e.getMessage());
+		}
 
 	}
-
 	/**
 	 * Añade una foca
 	 */
 	private static void addFoca() {
-		mamiferos.add(new Foca(pedirNombre()));
+		try {
+			mamiferos.add(new Foca(pedirNombre()));
+		} catch (NombreNoValidoException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	/**
 	 * Añade un Homo Sapiens
 	 */
 	private static void addHomoSapiens() {
-		mamiferos.add(new HomoSapiens(pedirNombre()));
+		try {
+			mamiferos.add(new HomoSapiens(pedirNombre()));
+		} catch (NombreNoValidoException e) {
+			System.out.println(e.getMessage());
+		}
 	}
-
 	/**
 	 * Pide el nombre del mamífero
 	 * 
