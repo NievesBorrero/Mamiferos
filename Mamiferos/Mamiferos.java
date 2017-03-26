@@ -66,6 +66,13 @@ public class Mamiferos {
 		return it;
 	}
 	
+	/** 
+	*Permite ordenar mamíferos por orden alfabético
+	*/
+	static void ordenarMamiferosPorNombre() {
+		Collections.sort(mamiferos);
+	}
+	
 	@Override
 	public String toString() {
 		return "Mamiferos "+mamiferos;
