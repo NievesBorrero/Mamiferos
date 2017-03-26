@@ -1,13 +1,13 @@
 package Mamiferos;
 /**
- * Clase para crear un mamífero foca.
+ * Clase para crear un mamÃ­fero foca.
  * @author Nieves Borrero
  * @version 1.0
  */
 public class Foca extends Mamifero{
 	private int extremidades=4;
 
-	Foca(String nombre) {
+	Foca(String nombre) throws NombreNoValidoException{
 		super(nombre);
 	}
 
