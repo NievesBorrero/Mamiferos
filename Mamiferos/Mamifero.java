@@ -8,10 +8,25 @@ package Mamiferos;
 public abstract class Mamifero implements Comparable<Mamifero>{
 	private String nombre;
 	private int amamantado;
-	Etapa etapa = Etapa.CRIA;
+	protected Etapa etapa = Etapa.CRIA;
+	private int codigo; // Al crear un mamífero, se genera un código único.
+	private static int id; // Por eso necesitamos un valor estático que vaya
+		//almacenando el código anterior.
 
 	Mamifero(String nombre) {
 		setNombre(nombre);
+		setCodigo(codigo);
+	}
+	
+	protected int getCodigo() {
+		return codigo;
+	}
+	
+	/**
+	* Genera un código único para cada mamífero
+	*/
+	private void setCodigo(int codigo) {
+		this.codigo = id++;
 	}
 
 	protected String getNombre() {
@@ -85,11 +100,34 @@ public abstract class Mamifero implements Comparable<Mamifero>{
 		return this.getNombre().toLowerCase()
 			.compareTo(o.getNombre().toLowerCase());
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + codigo;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Mamifero other = (Mamifero) obj;
+		if (codigo != other.codigo)
+			return false;
+		return true;
+	}
 
 	@Override
 	public String toString() {
-		return "Mamifero [nombre=" + nombre + ", amamantado=" + amamantado
-				+ ", etapa=" + getEtapa() + ", desplazar()=" + desplazar() + "]";
+		return "Mamifero [nombre=" + nombre + ", codigo=" + getCodigo()
+				+ ", amamantado=" + amamantado + ", etapa=" + getEtapa()
+				+ ", desplazar()=" + desplazar() + "]";
 	}
 
 }
