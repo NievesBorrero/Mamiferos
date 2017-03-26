@@ -13,7 +13,7 @@ public abstract class Mamifero implements Comparable<Mamifero>{
 	private static int id; // Por eso necesitamos un valor estático que vaya
 		//almacenando el código anterior.
 
-	Mamifero(String nombre) {
+	Mamifero(String nombre) throws NombreNoValidoException{
 		setNombre(nombre);
 		setCodigo(codigo);
 	}
@@ -32,9 +32,28 @@ public abstract class Mamifero implements Comparable<Mamifero>{
 	protected String getNombre() {
 		return nombre;
 	}
-
-	private void setNombre(String nombre) {
-		this.nombre = nombre;
+	
+	/**
+	* Permite darle un nombre al mamífero controlando que sea correcto, de
+	* no serlo, lanza una excepción.
+	*/
+	private void setNombre(String nombre) throws NombreNoValidoException {
+		if (nombreEsValido(nombre))
+			this.nombre = nombre;
+		else
+			throw new NombreNoValidoException("El nombre introducido no es valido");
+	}
+	
+	/**
+	* Comprueba que el nombre del mamífero es válido.
+	* @param nombre
+	* @return true o false.
+	*/
+	private boolean nombreEsValido(String nombre) {
+		
+		Pattern patron = Pattern.compile("[aA-zZ]+");
+		Matcher motorDeBusqueda = patron.matcher(nombre);
+		return motorDeBusqueda.find();
 	}
 
 	/**
