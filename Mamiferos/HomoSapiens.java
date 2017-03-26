@@ -1,6 +1,6 @@
 package Mamiferos;
 /**
- * Clase para crear un mamífero Humano
+ * Clase para crear un mamÃ­fero Humano
  * @author Nieves Borrero
  * @version 1.0
  */
@@ -8,7 +8,7 @@ public class HomoSapiens extends Mamifero {
 	private int brazos=2;
 	private int piernas=2;
 	
-	HomoSapiens(String nombre) {
+	HomoSapiens(String nombre) throws NombreNoValidoException{
 		super(nombre);
 	}
 
