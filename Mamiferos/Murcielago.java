@@ -1,13 +1,14 @@
 package Mamiferos;
 /**
- * Clase para crear un mamífero murciélago
+ * Clase para crear un mamÃ­fero murciÃ©lago
  * @author Nieves Borrero
  * @version 1.0
  */
 public class Murcielago extends Mamifero{
 	private int alas=2;
 	private int patas=2;
-	Murcielago(String nombre) {
+	
+	Murcielago(String nombre) throws NombreNoValidoException{
 		super(nombre);
 	}
 
