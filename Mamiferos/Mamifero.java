@@ -1,11 +1,11 @@
 package Mamiferos;
 /**
- * Clase a partir de la que se crearán otras clases hijas de mamíferos.
+ * Clase a partir de la que se crearÃ¡n otras clases hijas de mamÃ­feros.
  * @author Nieves Borrero
  * version 1.0
  */
 
-public abstract class Mamifero {
+public abstract class Mamifero implements Comparable<Mamifero>{
 	private String nombre;
 	private int amamantado;
 	Etapa etapa = Etapa.CRIA;
@@ -38,6 +38,7 @@ public abstract class Mamifero {
 	/**
 	 * Devuelve un mensaje y suma 1 a amamantando
 	 * 
+	 
 	 * @return Cadena
 	 */
 	protected String mamar() {
@@ -46,7 +47,7 @@ public abstract class Mamifero {
 	}
 
 	/**
-	 * Devolverá un mensaje distinto según el tipo de mamífero
+	 * DevolverÃ¡ un mensaje distinto segÃºn el tipo de mamÃ­fero
 	 * 
 	 * @return Cadena
 	 */
@@ -61,19 +62,28 @@ public abstract class Mamifero {
 	}
 
 	/**
-	 * Devuelve un mensaje distinto según el tipo de mamífero.
+	 * Devuelve un mensaje distinto segÃºn el tipo de mamÃ­fero.
 	 * 
-	 * @return
+	 * @return cadena.
 	 */
 	protected abstract String desplazar();
 
 	/**
-	 * Comprueba si debe seguir siendo una cría, si no, su etapa pasa a ser
+	 * Comprueba si debe seguir siendo una crÃ­a, si no, su etapa pasa a ser
 	 * adulto
 	 */
 	protected void comprobarEtapa() {
 		if (amamantado == 3)
 			setEtapa(etapa.ADULTO);
+	}
+	/**
+	*Sobrescribimos el compareTo por si queremos ordenarlos por nombre
+	*@return entero
+	*/
+	@Override
+	public int compareTo (Mamifero o){
+		return this.getNombre().toLowerCase()
+			.compareTo(o.getNombre().toLowerCase());
 	}
 
 	@Override
