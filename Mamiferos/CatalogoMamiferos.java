@@ -37,10 +37,17 @@ public class CatalogoMamiferos {
 				alimentarMamiferos();
 				break;
 			case 7:
+				ordenarMamiferosPorNombre();
+			case 8:
 				salir();
 				break;
 			}
 		} while (opcion != menu.getSalir());
+	}
+	
+	private static void ordenarMamiferosPorNombre() {
+		mamiferos.ordenarMamiferosPorNombre();
+		System.out.println(mamiferos.toString());
 	}
 
 	private static void salir() {
