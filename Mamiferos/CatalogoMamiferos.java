@@ -107,11 +107,6 @@ public class CatalogoMamiferos {
 		if (!isEmpty()) {
 			ListIterator<Mamifero> it = mamiferos.toIterator();
 			Mamifero mamifero;
-			
-			while (it.hasNext()) { // Recorremos el LisIterator para que se
-									// quede apuntando al último elemento
-				it.next();
-			}
 
 			while (it.hasPrevious()) {
 				mamifero = it.previous();
