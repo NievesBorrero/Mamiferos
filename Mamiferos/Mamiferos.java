@@ -62,7 +62,7 @@ public class Mamiferos {
 	 * @return Iterator
 	 */
 	public ListIterator<Mamifero> toIterator(){
-		ListIterator<Mamifero> it= mamiferos.listIterator();
+		ListIterator<Mamifero> it= mamiferos.listIterator(size());
 		return it;
 	}
 	
