@@ -1,10 +1,14 @@
 package Mamiferos;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.ListIterator;
 /**
  * Clase para crear una lista dinámica de mamíferos
  * @author Nieves Borrero
  * version 1.0
  */
-import java.util.ArrayList;
+
 
 public class Mamiferos {
 	
