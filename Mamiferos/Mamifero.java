@@ -1,4 +1,8 @@
 package Mamiferos;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Clase a partir de la que se crearán otras clases hijas de mamíferos.
  * @author Nieves Borrero
