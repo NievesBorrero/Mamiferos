@@ -16,7 +16,7 @@ public abstract class Mamifero implements Comparable<Mamifero>{
 	private int codigo; // Al crear un mamífero, se genera un código único.
 	private static int id; // Por eso necesitamos un valor estático que vaya
 		//almacenando el código anterior.
-	private static final Pattern patron = Pattern.compile("[aA-zZ]+");
+	private static final Pattern patron = Pattern.compile("[aA-zZ]+\\s?[aA-zZ]*");
 
 	Mamifero(String nombre) throws NombreNoValidoException{
 		setNombre(nombre);
