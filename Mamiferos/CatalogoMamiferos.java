@@ -1,10 +1,12 @@
 package Mamiferos;
+import java.util.ListIterator;
+import utiles.*;
+
 /**
  * @author Nieves Borrero
  * @version 1.0
  */
 
-import utiles.*;
 
 public class CatalogoMamiferos {
 
